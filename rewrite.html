@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Replace Animation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  .text-container {
+    font-size: 24px;
+    color: #888;
+  }
+  .highlight {
+    color: #aa80ff;
+    position: relative;
+  }
+  .cursor {
+    display: inline-block;
+    animation: blink 0.5s step-end infinite;
+  }
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="text-container">
+  Working on something new, <span class="highlight">come back later.<span class="cursor">|</span></span>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const highlight = document.querySelector(".highlight");
+    const cursor = document.querySelector(".cursor");
+
+    let originalText = "come back later.";
+    let newText = "please wait...";
+    let currentText = originalText;
+    let index = 0;
+
+    function type(text) {
+      if (index < text.length) {
+        highlight.textContent = text.substring(0, index + 1);
+        highlight.appendChild(cursor);
+        index++;
+        setTimeout(() => type(text), 150);
+      } else {
+        setTimeout(() => {
+          index = 0;
+          highlight.textContent = "";
+          highlight.appendChild(cursor);
+          currentText = currentText === originalText ? newText : originalText;
+          type(currentText);
+        }, 2000);
+      }
+    }
+
+    type(currentText);
+  });
+</script>
+
+</body>
+</html>

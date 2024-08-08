@@ -158,3 +158,17 @@ hr {
 .footer ul{
     padding-inline-start: 0px;
 }
+
+
+/** animation **/
+
+.cursor {
+    display: inline-block;
+    animation: blink 0.5s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+      opacity: 0;
+    }
+}
