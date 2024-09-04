@@ -8,46 +8,88 @@
 </head>
 <body>
     <nav class="navigation container"><div class="nav-brand">SUSHI</div>
-        
+        <ul class="list-non-bullet nav-pills">
+            <li class="list-item-inline">
+                <a class="link link-active" href="/">home</a>
+            </li>
+            <li class="list-item-inline">
+                <a class="link" href="projects.html">projects</a>
+            </li>
+            <li class="list-item-inline">
+                <a class="link" href="certificates.html">certificates</a>
+            </li>
+            <li class="list-item-inline">
+                <a class="link" href="resume.html">resume</a>
+            </li>
+        </ul>
     </nav> 
 
 
     <header class="hero">
-        <img class="hero-img" src="waiting.svg" alt="">
-    <h1 class="hero-heading">Working on something new, <span class="heading-inverted"><span class="cursor">|</span></span></h1>
+        <img class="hero-img" src="img1.png" alt="">
+    <h1 class="hero-heading">Sushmita Shukla the <span class="heading-inverted"><span class="cursor">|</span></span></h1>
     </header>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-          const rewriteText = document.querySelector(".heading-inverted");
-          const cursor = document.querySelector(".cursor");
-      
-          let originalText = "come back later...";
-          let newText = "please wait...";
-          let currentText = originalText;
-          let index = 0;
-      
-          function type(text) {
-            if (index < text.length) {
-              rewriteText.textContent = text.substring(0, index + 1);
-              rewriteText.appendChild(cursor);
-              index++;
-              setTimeout(() => type(text), 150);
-            } else {
-              setTimeout(() => {
-                index = 0;
-                rewriteText.textContent = "";
-                rewriteText.appendChild(cursor);
-                currentText = currentText === originalText ? newText : originalText;
-                type(currentText);
-              }, 1000);
-            }
-          }
-      
-          type(currentText);
-        });
-      </script>
-      
+    <section class="section ow">
+        <div class="container container-center">
+            <h1>Technologies</h1>
+            <p>I'm familier with HTML, CSS, JavaScript, Github, Node.js, React.js and Web Hosting using Netlify.</p>
+            </div>
+       </section>
+
+    <section class="section">
+        <div class="container container-center">
+            <h1>Projects</h1>
+            <p>I have worked on multiple personal projects based on Node.js, React and Flask.</p>
+            <a class="link primary-link" href="projects.html">see projects</a>
+            </div>
+       </section>
+       <section class="section ow">
+        <div class="container container-center">
+            <h1>Professional Experience</h1>
+            <p>I have intership as well as full time work experience primarily involving web-dev.</p>
+            <a class="link primary-link" href="experinece.html">Know more</a>    
+        </div>
+       </section>
+       <footer class="footer">
+        <div class="footer footer-header">Connect to me on:</div>
+        <ul class="social-links list-non-bullet">
+            <li class="list-item-inline"><a class="link" href="https://www.linkedin.com/in/sushmitas0305/">LinkedIn</a></li>
+            <li class="list-item-inline"><a class="link" href="https://github.com/Sushmitas31">GitHub</a></li>
+            <li class="list-item-inline"><a class="link" href="https://leetcode.com/u/sushmitas31/">Leetcode</a></li>
+        </ul>
+   </footer>
+
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const rewriteText = document.querySelector(".heading-inverted");
+    const cursor = document.querySelector(".cursor");
+
+    let texts = ["web developer", "full stack developer", "backend developer", "frontend developer","software engineer"]; // Array of texts
+    let currentIndex = 0;
+    let index = 0;
+
+    function type(text) {
+        if (index < text.length) {
+        rewriteText.textContent = text.substring(0, index + 1);
+        rewriteText.appendChild(cursor);
+        index++;
+        setTimeout(() => type(text), 150);
+        } else {
+        setTimeout(() => {
+            index = 0;
+            rewriteText.textContent = "";
+            rewriteText.appendChild(cursor);
+            currentIndex = (currentIndex + 1) % texts.length; // Move to the next text
+            type(texts[currentIndex]);
+        }, 1000);
+        }
+    }
+
+    type(texts[currentIndex]);
+    });
+  </script>
+
 
 </body>
 </html>
