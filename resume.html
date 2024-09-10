@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <nav class="navigation container"><div class="nav-brand">IAMDEVELOPER</div>
-        <ul class="list-non-bullet nav-pills">
-            <li class="list-item-inline">
-                <a class="link" href="/">home</a>
-            </li>
-            <li class="list-item-inline">
-                <a class="link link-active" href="/projects.html">projects</a>
-            </li>
-            <li class="list-item-inline">
-                <a class="link" href="/certificates.html">certificates</a>
-            </li>
-        </ul>
-    </nav> 
+
+    <div id="nav-placeholder"></div>
+
     <!-- <header class="hero">
         <img class="hero-img" src="img2.png" alt="">
     <h1 class="hero-heading">see my <span class="heading-inverted"><strong> resume</strong></span></h1>
@@ -28,10 +20,38 @@
     <!-- Embed PDF
     <embed src="assets/resume.pdf" type="application/pdf"> -->
 
- <!-- Embed the PDF using iframe -->
- <iframe src="https://drive.google.com/file/d/1DhAoWvCCilryvbl0wZ5beNYdPQHSZznQ/preview"></iframe>
-        
-     
-        
+    <!-- Embed the PDF using iframe -->
+    <iframe src="https://drive.google.com/file/d/1DhAoWvCCilryvbl0wZ5beNYdPQHSZznQ/preview"></iframe>
+
+
+    <div id="footer-placeholder"></div>
+
+
+    <script>
+
+        // JavaScript to load the navigation bar from nav.html
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading navigation:', error);
+            });
+
+        fetch('foot.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Error loading navigation:', error);
+            });
+
+    </script>
+
+
+
 </body>
+
 </html>
